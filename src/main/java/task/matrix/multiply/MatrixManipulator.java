@@ -49,40 +49,40 @@ public class MatrixManipulator {
             this.matrixR.resetWidthHeight(matrixB.getWidth(), matrixA.getHeight());
             switch (type) {
                 case DOUBLE:
-                    double[] elementsDouble;
-                    elementsDouble = new double[matrixA.getHeight() * matrixB.getWidth()];
+                    double[] elementsDouble = new double[matrixA.getHeight() * matrixB.getWidth()];
                     matrixA.setElementsType(Matrix.ELEMENTS_TYPE.DOUBLE);
                     matrixB.setElementsType(Matrix.ELEMENTS_TYPE.DOUBLE);
                     for (int i = 0; i < matrixA.getHeight(); i++) {
                         for (int j = 0; j < matrixB.getWidth(); j++) {
                             for (int k = 0; k < matrixA.getWidth(); k++) {
-                                elementsDouble[i * matrixB.getWidth() + j] += matrixA.getElementDouble(i, k) * matrixB.getElementDouble(k, j);
+                                elementsDouble[i * matrixB.getWidth() + j] +=
+                                matrixA.getElementDouble(i, k) * matrixB.getElementDouble(k, j);
                             }
                         }
                     }
                     this.matrixR.setElementsDouble(elementsDouble);
                     break;
                 case LONG:
-                    long[] elementsLong;
-                    elementsLong = new long[matrixA.getHeight() * matrixB.getWidth()];
+                    long[] elementsLong = new long[matrixA.getHeight() * matrixB.getWidth()];
                     matrixA.setElementsType(Matrix.ELEMENTS_TYPE.LONG);
                     matrixB.setElementsType(Matrix.ELEMENTS_TYPE.LONG);
                     for (int i = 0; i < matrixA.getHeight(); i++) {
                         for (int j = 0; j < matrixB.getWidth(); j++) {
                             for (int k = 0; k < matrixA.getWidth(); k++) {
-                                elementsLong[i * matrixB.getWidth() + j] += matrixA.getElementLong(i, k) * matrixB.getElementLong(k, j);
+                                elementsLong[i * matrixB.getWidth() + j] +=
+                                matrixA.getElementLong(i, k) * matrixB.getElementLong(k, j);
                             }
                         }
                     }
                     this.matrixR.setElementsLong(elementsLong);
                     break;
                 case INT:
-                    int[] elementsInt;
-                    elementsInt = new int[matrixA.getHeight() * matrixB.getWidth()];
+                    int[] elementsInt = new int[matrixA.getHeight() * matrixB.getWidth()];
                     for (int i = 0; i < matrixA.getHeight(); i++) {
                         for (int j = 0; j < matrixB.getWidth(); j++) {
                             for (int k = 0; k < matrixA.getWidth(); k++) {
-                                elementsInt[i * matrixB.getWidth() + j] += matrixA.getElementInt(i, k) * matrixB.getElementInt(k, j);
+                                elementsInt[i * matrixB.getWidth() + j] +=
+                                matrixA.getElementInt(i, k) * matrixB.getElementInt(k, j);
                             }
                         }
                     }
@@ -91,7 +91,8 @@ public class MatrixManipulator {
             }
             return this.matrixR;
         } else {
-            throw new IllegalArgumentException("'" + matrixA.getName() + "' matrix's width should be equal to '" + matrixB.getName() + "' matrix's height");
+            throw new IllegalArgumentException("'" + matrixA.getName() + "' matrix's width should be equal to '" +
+                                                     matrixB.getName() + "' matrix's height");
         }
     }
 
@@ -107,20 +108,17 @@ public class MatrixManipulator {
         int t = rn.nextInt(3);
         switch(t) {
             case 0:
-                int[] elementsInt;
-                elementsInt = new int[this.matrixR.getWidth() * this.matrixR.getHeight()];
+                int[] elementsInt = new int[this.matrixR.getWidth() * this.matrixR.getHeight()];
                 for (int i = 0; i < elementsInt.length; i++) elementsInt[i] = rn.nextInt();
                 this.matrixR.setElementsInt(elementsInt);
                 break;
             case 1:
-                long[] elementsLong;
-                elementsLong = new long[this.matrixR.getWidth() * this.matrixR.getHeight()];
+                long[] elementsLong = new long[this.matrixR.getWidth() * this.matrixR.getHeight()];
                 for (int i = 0; i < elementsLong.length; i++) elementsLong[i] = rn.nextLong();
                 this.matrixR.setElementsLong(elementsLong);
                 break;
             case 2:
-                double[] elementsDouble;
-                elementsDouble = new double[this.matrixR.getWidth() * this.matrixR.getHeight()];
+                double[] elementsDouble = new double[this.matrixR.getWidth() * this.matrixR.getHeight()];
                 for (int i = 0; i < elementsDouble.length; i++) elementsDouble[i] = rn.nextDouble();
                 this.matrixR.setElementsDouble(elementsDouble);
                 break;
