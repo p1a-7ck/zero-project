@@ -8,12 +8,17 @@ public class Main {
         Matrix matrixA = new Matrix("Alfa");
         Matrix matrixB = new Matrix("Beta");
         Matrix matrixC = new Matrix("Gamma");
+        MatrixGenerator matrixGen = new MatrixGenerator(matrixA);
+        MatrixMultiplier matrixMul = new MatrixMultiplier(matrixC);
+
+        matrixA = matrixGen.generateRandomMatrix(0, 10);
+        matrixB = matrixGen.setMatrixR(matrixB).generateRandomMatrix(matrixA.getWidth(), 10);
 
         for (int i = 0; i < 10; i ++) {
             System.out.println("\n***");
-            matrixA = new MatrixManipulator(matrixA).generateRandomMatrix(0, 10);
-            matrixB = new MatrixManipulator(matrixB).generateRandomMatrix(matrixA.getWidth(), 10);
-            matrixC = new MatrixManipulator(matrixC).generateRandomMatrix(0, 10);
+            matrixA = matrixGen.setMatrixR(matrixA).generateRandomMatrix(0, 10);
+            matrixB = matrixGen.setMatrixR(matrixB).generateRandomMatrix(matrixA.getWidth(), 10);
+            matrixC = matrixGen.setMatrixR(matrixC).generateRandomMatrix(0, 10);
             System.out.println(matrixA);
             System.out.println(matrixB);
             System.out.println(matrixC);
@@ -21,7 +26,7 @@ public class Main {
             System.out.println("\nSTEP #" + (i + 1));
             System.out.println("Trying to multiply with resulting to matrix '" + matrixC.getName() + "'...");
             try {
-                matrixC = new MatrixManipulator(matrixC).multiplySimple(matrixA, matrixB);
+                matrixC = matrixMul.setMatrixR(matrixC).multiplySimple(matrixA, matrixB);
                 System.out.println(matrixC);
             } catch (Exception exc) {
                 System.out.println("Failed (" + exc.getMessage() + ")");
