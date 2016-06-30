@@ -5,14 +5,14 @@ import java.util.Random;
 /**
  * Created by P1A-7CK on 30.06.2016.
  */
-public class MatrixGenerator {
+public class MatrixFactory {
     Matrix matrixR;
 
-    public MatrixGenerator(Matrix matrixR) {
+    public MatrixFactory(Matrix matrixR) {
         this.matrixR = matrixR;
     }
 
-    public MatrixGenerator setMatrixR(Matrix matrixR) {
+    public MatrixFactory setMatrixR(Matrix matrixR) {
         this.matrixR = matrixR;
         return this;
     }

@@ -8,7 +8,7 @@ public class Main {
         Matrix matrixA = new Matrix("Alfa");
         Matrix matrixB = new Matrix("Beta");
         Matrix matrixC = new Matrix("Gamma");
-        MatrixGenerator matrixGen = new MatrixGenerator(matrixA);
+        MatrixFactory matrixGen = new MatrixFactory(matrixA);
         MatrixMultiplier matrixMul = new MatrixMultiplier(matrixC);
 
         matrixA = matrixGen.generateRandomMatrix(0, 10);
